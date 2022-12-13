@@ -129,8 +129,9 @@ class TestCase(CanvasTestCase):
         # capture the black background.
         (w, h) = canvas.dimensions
         vertices = [(0, 0), (0, h), (w, h), (w, 0)]
-        rectangle = Polygon(canvas=canvas, vertices=vertices)
-        rectangle['fill'] = rectangle['outline'] = 'black'
+        rectangle = self.rectangle = Polygon(canvas=canvas, vertices=vertices)
+        rectangle['fill'] = 'black'
+        rectangle['outline'] = 'black' #'white'
         canvas.update()
         
     def tearDown(self):

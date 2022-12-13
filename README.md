@@ -108,7 +108,7 @@ to `+1` in each dimension. The cursor radius is expressed in terms of these
 coordinates. Therefore, a unit radius will result in a diameter two circle, 
 which intersects with the edges of the workspace.
 
-![Figure 1: Cursor.](data/test_package-cursor-2.ps "Figure 1")
+![Figure 1: Cursor.](data/test_package-cursor-2.svg "Figure 1")
 
 Set new parameters to re-size and re-position the cursor.
 
@@ -123,7 +123,7 @@ The canvas should now appear as in Figure 2. The cursor is smaller and is away
 from the origin. Note that the 3rd (`z`) coordinate of the cursor position is 
 set arbitarily, and that this has no visible effect.
 
-![Figure 2](data/test_package-cursor-3.ps "Figure 2")
+![Figure 2](data/test_package-cursor-3.svg "Figure 2")
 
 Add a target to the workspace, and similarly set parameters.
 
@@ -141,7 +141,7 @@ Add a target to the workspace, and similarly set parameters.
 The canvas should now appear as in Figure 3. Both a cursor and a target are 
 visible on the canvas.
 
-![Figure 3](data/test_package-target-4.ps "Figure 3")
+![Figure 3](data/test_package-target-4.svg "Figure 3")
 
 Move the cursor to intersect with the target. The canvas should now appear as 
 in Figure 4.
@@ -152,7 +152,7 @@ in Figure 4.
 
 ```
 
-![Figure 4](data/test_package-target-5.ps "Figure 4")
+![Figure 4](data/test_package-target-5.svg "Figure 4")
 
 Even thought the 3rd (`z`) coordinate of the cursor position exceeds that of 
 the target position, the target appears in the foreground. This is because the 
