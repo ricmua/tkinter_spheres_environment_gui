@@ -77,20 +77,10 @@ window, with a blank canvas.
 
 ```
 
-```python
->>> from tkinter_shapes import Polygon
->>> canvas = environment.gui.canvas
->>> vertices = [(0, 0), (0, 600), (600, 600), (600, 0)]
->>> rectangle = Polygon(canvas=canvas, vertices=vertices)
->>> rectangle.color = 'black'
->>> canvas.update()
-
-```
-
 Add a spherical cursor to the environment. Although the GUI will not change 
 (without further action), it can be verified that the cursor object has been 
 added to the environmental state. The parameters of the cursor are set to some 
-default values. The default color of the sphere on the canvas is black.
+default values. <!-- The default color of the sphere on the canvas is black. -->
 
 ```python
 >>> cursor = environment.initialize_object('cursor')
@@ -120,8 +110,6 @@ which intersects with the edges of the workspace.
 
 ![Figure 1: Cursor.](data/test_package-cursor-2.ps "Figure 1")
 
-![Figure 2](data/test_package-cursor-3.ps "Figure 2")
-
 Set new parameters to re-size and re-position the cursor.
 
 ```python
@@ -134,6 +122,8 @@ Set new parameters to re-size and re-position the cursor.
 The canvas should now appear as in Figure 2. The cursor is smaller and is away 
 from the origin. Note that the 3rd (`z`) coordinate of the cursor position is 
 set arbitarily, and that this has no visible effect.
+
+![Figure 2](data/test_package-cursor-3.ps "Figure 2")
 
 Add a target to the workspace, and similarly set parameters.
 
@@ -178,7 +168,7 @@ by raising the cursor to the foreground.
 
 The canvas should now appear as in Figure 5.
 
-![Figure 5](data/test_package-target-6.ps "Figure 5")
+![Figure 5](data/test_package-target-6.svg "Figure 5")
 
 
 Finally, clean up by destroying the environment. This closes the GUI window. 
