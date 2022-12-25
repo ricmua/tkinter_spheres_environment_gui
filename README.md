@@ -32,7 +32,8 @@ package borrows the interface defined by the [spheres_environment] Python
 package. This was decision was made in order to increase compatibility with 
 software designed for the `spheres_environment` package, and vice-versa (e.g., 
 this GUI can be used for visualizing a 2D representation of a 3D spheres 
-environment). This package ignores the third (`z`) dimension of 3D positions when rendering shapes on the canvas.
+environment). This package ignores the third (`z`) dimension of 3D positions 
+when rendering shapes on the canvas.
 
 Note: This documentation sometimes a generalized interpretation of 
 [sphere dimensionality]. That is, objects on the canvas will often be 
