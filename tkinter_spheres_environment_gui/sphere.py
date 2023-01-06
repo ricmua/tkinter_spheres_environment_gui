@@ -96,6 +96,7 @@ class Sphere(spheres_environment.Sphere):
         # environment.
         self.position = super().position
         self.radius = super().radius
+        self.color = super().color
         
     @spheres_environment.Sphere.position.getter
     def position(self):
@@ -211,7 +212,8 @@ class Sphere(spheres_environment.Sphere):
     def color(self, value):
         assert isinstance(value, tuple) and (len(value) == 4)
         (r, g, b) = (round(255*min(max(c, 0), 1)) for c in value[:-1])
-        a = bool(value[-1])
+        #a = bool(value[-1])
+        a = float(value[-1] > 0)
         color_string = f'#{r:02x}{g:02x}{b:02x}'.upper() if a else ''
         self._circle['fill'] = self._circle['outline'] = color_string
     
