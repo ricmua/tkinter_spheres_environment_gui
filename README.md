@@ -59,6 +59,11 @@ options that can be added to the command:
 pip install --upgrade --user --editable path/to/tkinter_spheres_environment_gui
 ```
 
+### Testing
+
+See the [testing documentation](doc/markdown/testing.md) for further 
+information.
+
 ## Getting started
 
 Perhaps the best way to introduce the package functionality is via an example. 
@@ -78,6 +83,10 @@ window, with a blank canvas.
 
 ```
 
+Import the `pprint` package to aid in displaying the state of environment.
+
+>>> import pprint
+
 Add a spherical cursor to the environment. Although the GUI will not change 
 (without further action), it can be verified that the cursor object has been 
 added to the environmental state. The parameters of the cursor are set to some 
@@ -85,8 +94,10 @@ default values. <!-- The default color of the sphere on the canvas is black. -->
 
 ```python
 >>> cursor = environment.initialize_object('cursor')
->>> environment['cursor']
-{'position': {'x': 0.0, 'y': 0.0, 'z': 0.0}, 'radius': 1.0}
+>>> pprint.pp(environment['cursor'])
+{'position': {'x': 0.0, 'y': 0.0, 'z': 0.0},
+ 'radius': 1.0,
+ 'color': {'r': 0.0, 'g': 0.0, 'b': 0.0, 'a': 1.0}}
 
 ```
 
@@ -116,6 +127,7 @@ Set new parameters to re-size and re-position the cursor.
 ```python
 >>> cursor.radius = 0.1
 >>> cursor.position = (-0.25, 0.25, 1.0)
+>>> cursor.color = (0.0, 1, 0, 1.0)
 >>> environment.update()
 
 ```
@@ -129,13 +141,18 @@ set arbitarily, and that this has no visible effect.
 Add a target to the workspace, and similarly set parameters.
 
 ```python
->>> target = environment.initialize_object('cursor')
+>>> target = environment.initialize_object('target')
 >>> target.color = (0.0, 0.0, 1.0, 1.0)
 >>> target.radius = 0.2
 >>> target.position = (0.5, -0.5, 0.0)
 >>> environment.update()
->>> environment
-['cursor', 'target']
+>>> pprint.pp(environment)
+{'cursor': {'position': {'x': -0.25, 'y': 0.25, 'z': 1.0},
+            'radius': 0.1,
+            'color': {'r': 0.0, 'g': 1.0, 'b': 0.0, 'a': 1.0}},
+ 'target': {'position': {'x': 0.5, 'y': -0.5, 'z': 0.0},
+            'radius': 0.2,
+            'color': {'r': 0.0, 'g': 0.0, 'b': 1.0, 'a': 1.0}}}
 
 ```
 

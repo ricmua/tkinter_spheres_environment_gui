@@ -197,20 +197,36 @@ class Sphere(spheres_environment.Sphere):
     
     @property #object_property
     def color(self):
-        """ Fill and outline color of the circle, represented as 4-tuple of 
-            floats in the range [0.0, 1.0].
+        """ Fill and outline color of the circle, represented as dict of 
+            float values in the range [0.0, 1.0].
         """
+        
+        ## Invoke the superclass property accessor.
+        #color = spheres_environment.Sphere.color.fget(self)
+        
         assert self._circle['fill'] == self._circle['outline']
         alpha = 1.0 if self._circle['fill'] else 0.0
         to_rgb = self._circle.canvas.winfo_rgb
         color = to_rgb(self._circle['fill']) if alpha else (0, 0, 0)
         white = to_rgb('white')
         rgb = (c/w for (c, w) in zip(color, white)) 
-        return (*rgb, alpha)
+        keys = ['r', 'g', 'b', 'a']
+        return dict(zip(keys, (*rgb, alpha)))
     
     @color.setter
     def color(self, value):
-        assert isinstance(value, tuple) and (len(value) == 4)
+        
+        # Invoke the superclass property accessor.
+        # Record the current value (normalized coordinates).
+        # This is useful for applying any superclass transforms.
+        spheres_environment.Sphere.color.fset(self, value)
+        
+        #assert isinstance(value, tuple) and (len(value) == 4)
+        keys = ['r', 'g', 'b', 'a']
+        value = dict(zip(keys, value)) if isinstance(value, tuple) else value
+        assert isinstance(value, dict)
+        assert (list(value) == keys)
+        value = tuple(value[k] for k in keys)
         (r, g, b) = (round(255*min(max(c, 0), 1)) for c in value[:-1])
         #a = bool(value[-1])
         a = float(value[-1] > 0)
