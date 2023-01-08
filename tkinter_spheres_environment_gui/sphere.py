@@ -195,7 +195,7 @@ class Sphere(spheres_environment.Sphere):
         # Set the radius of the circle, in pixel coordinates.
         self._circle.radius = r
     
-    @property #object_property
+    @spheres_environment.Sphere.color.getter
     def color(self):
         """ Fill and outline color of the circle, represented as dict of 
             float values in the range [0.0, 1.0].
