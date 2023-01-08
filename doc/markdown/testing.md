@@ -1,6 +1,6 @@
 <!-- License
 
-Copyright 2022 Neuromechatronics Lab, Carnegie Mellon University (a.whit)
+Copyright 2022-2023 Neuromechatronics Lab, Carnegie Mellon University (a.whit)
 
 Contributors:
   a. whit. (nml@whit.contact)
@@ -30,7 +30,7 @@ for further information.
 
 ```bash
 python3 -m pytest path/to/tkinter_spheres_environment_gui/test/ \
-  -k test_reference_image -vv
+  -k test_reference_images -vv
 ```
 
 ### README.md
